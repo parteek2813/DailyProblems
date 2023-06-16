@@ -3,6 +3,13 @@ package AdvBitManipulation;
 // Question
 
 // Given an array , you find out the sum of XOR of all pairs in the array.
+// Assuming that all the numbers are the non negative integers
+
+// Example- arr{5,9,6,7};
+// then find the sum like
+// sum = [5^9] +[5^6] +[5^7] +[9^6] +[9^7] +[6^7]
+// print sum
+
 
 public class XorSum {
 
