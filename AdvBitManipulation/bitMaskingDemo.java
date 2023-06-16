@@ -23,7 +23,6 @@ public class bitMaskingDemo {
         for(int x : arr){
 
             int j =0;
-
             //extract every bit of given number and add it to the sum at correct indx (j)
             while (x>0){
                 int lastBit = (x&1);
