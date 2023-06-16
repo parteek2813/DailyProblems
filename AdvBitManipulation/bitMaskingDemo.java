@@ -18,10 +18,11 @@ public class bitMaskingDemo {
     static int uniqueNumber(){
         int[] arr = {6,5,8,7,7,8,8,5,2,5,6,6,7};
         int n = arr.length;
-        int j =0;
 
-        int[] freq = {0};
+        int[] freq = new int[32];
         for(int x : arr){
+
+            int j =0;
 
             //extract every bit of given number and add it to the sum at correct indx (j)
             while (x>0){
@@ -32,7 +33,6 @@ public class bitMaskingDemo {
                     freq[j]++;
                 }
                 j++;
-
                 //remove the last bit
                 x= x >> 1;
             }
