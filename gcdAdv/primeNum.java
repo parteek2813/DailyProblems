@@ -1,5 +1,13 @@
 package gcdAdv;
 
+
+// Question
+//
+// GIven  Q Queries of the form [a,b] find out the count of oprimes in range [a,b] a,b<=10^6
+
+
+import java.util.Arrays;
+
 public class primeNum {
 
     static boolean isPrime(int n){
@@ -52,11 +60,59 @@ public class primeNum {
         }
     }
 
+    static int[] countPrimesInRange(int[] a, int[] b){
+        int maxRange = (int) Math.pow(10, 6);
+        boolean[] primes = new boolean[maxRange+1];
+
+        // Initialize all elements as true initially
+        for (int i = 2; i <= maxRange; i++) {
+            primes[i] = true;
+        }
+
+        // Sieve of Eratosthenes to mark non-prime numbers
+        for (int i = 2; i * i <= maxRange; i++) {
+            if (primes[i]) {
+                for (int j = i * i; j <= maxRange; j += i) {
+                    primes[j] = false;
+                }
+            }
+        }
+
+        // calculate prefix sum array
+
+        int[] prefixSum = new int[maxRange + 1];
+        for (int i=2; i<=maxRange; i++){
+            prefixSum[i] = prefixSum[i-1] + (primes[i] ? 1 :0);
+        }
+
+        int[] counts = new int[a.length]; // Array to store the counts
+        for (int i = 0; i < a.length; i++) {
+            int start = a[i];
+            int end = b[i];
+
+            if (start > end) {
+                int temp = start;
+                start = end;
+                end = temp;
+            }
+
+            counts[i] = prefixSum[end] - prefixSum[start - 1];
+        }
+        return counts;
+    }
+
     public static void main(String[] args) {
 //        isPrime(29);
 
         //Generate all prime from 1 to 100
 //        allPrimes();
-        allPrimeWithSieve();
+//        allPrimeWithSieve();
+
+        int[] arrA = {2,5,30,200};
+        int[] arrB = {50,100,500,10000};
+
+        int[] countArray = countPrimesInRange(arrA, arrB);
+        System.out.println(Arrays.toString(countArray));
+
     }
 }
