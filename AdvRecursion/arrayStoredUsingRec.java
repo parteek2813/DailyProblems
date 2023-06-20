@@ -30,6 +30,18 @@ public class arrayStoredUsingRec {
         // rec case
         return arr[n-1]>arr[n-2] && isSorted(arr, n-1);
     }
+
+    static  int SumOfDigits(int digits){
+
+        //base case
+        if(digits == 0){
+            return 0;
+        }
+
+
+        // rec case
+        return digits%10 + SumOfDigits(digits/10);
+    }
     public static void main(String[] args) {
 
         int[] arr = {1,3,5,7,10};
@@ -37,7 +49,11 @@ public class arrayStoredUsingRec {
 //        boolean res = isSorted(arr, n);
 //
 
-        boolean res = isSortedFromRight(arr,n);
-        System.out.println(res);
+//        boolean res = isSortedFromRight(arr,n);
+//        System.out.println(res);
+
+        int digits = 1256;
+        int sumRes=  SumOfDigits(digits);
+        System.out.println(sumRes);
     }
 }
