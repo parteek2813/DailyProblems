@@ -34,6 +34,7 @@ public class computeNCR {
 //        System.out.println(res);
 
 
+
     }
 
 }
