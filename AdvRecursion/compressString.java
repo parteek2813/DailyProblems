@@ -3,12 +3,14 @@ package AdvRecursion;
 // Given an string S , we have to compress it by dissolving/or removing the
 // consecutive char from this string.
 
-// HINT/OBSERVATION - Here the frequency of the consecutive char does not matter but the order of dissovlign the char
+// HINT/OBSERVATION - Here the frequency of the consecutive char does not matter but the order of dissolved the char
 // does matter
 
 
-// Here the time complexity can be very bad because at first glance we can tell the order to the program
+// Here the time complexity can be very bad because at first glance we can not tell the order to the program
 // so the time complexity can become like O(n^n) time which is very bad.
+
+// SO time becomes very bad
 
 public class compressString {
 
