@@ -6,6 +6,10 @@ package AdvRecursion;
 // HINT/OBSERVATION - Here the frequency of the consecutive char does not matter but the order of dissovlign the char
 // does matter
 
+
+// Here the time complexity can be very bad because at first glance we can tell the order to the program
+// so the time complexity can become like O(n^n) time which is very bad.
+
 public class compressString {
 
     static  String compressString(String s){
