@@ -68,8 +68,6 @@ public class mergeSortRec {
         MergeSort(arr,s,e);
 
         // printing the sorted array
-        for( int i =0; i<n; i++){
-            System.out.print(arr[i]+ " ");
-        }
+
     }
 }
