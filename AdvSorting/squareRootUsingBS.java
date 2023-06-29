@@ -2,33 +2,34 @@ package AdvSorting;
 
 public class squareRootUsingBS {
 
-    static  int SqaureRoot(int num){
+    static double SqaureRoot(int num){
         // base case
         if(num ==0 || num ==1){
             return num;
         }
 
         // binary search
-        int s =1;
-        int e = num;
-        int ans =-1;
+        double s =1;
+        double e = num;
+        double precision = 0.00001;
+        double mid = (s+e)/2;
 
-        while (s <= e){
-            int mid = (s+e)/2;
+        while (Math.abs(mid * mid - num) > precision){
+
             if (mid * mid < num){
-                s = mid+1;
-                ans = mid;
-            } else if (mid*mid > num) {
-                e = mid-1;
+                s = mid;
+            } else {
+                e = mid;
                 // here we don't updates the value of ans;
-            }else{
-                return mid;
             }
+            mid = s + (e - s) / 2;
+
         }
-        return ans;
+
+        return mid;
     }
     public static void main(String[] args) {
-        int num = 100;
+        int num = 99;
         System.out.println("square root of "+ num +" is: " + SqaureRoot(num));
     }
 }
