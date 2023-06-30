@@ -8,6 +8,11 @@ package AdvSorting;
 // divide the stacks in K+1 consecutive partitions. Your friends are greedy and they will
 // pick the best K parts and you will give the left out one.Maximize the value
 // of coins you can get.
+
+
+// Here the outer while loop runs for Log(e) times
+// and the ineer loop will run for O(N) times
+// hence complexity becomes O(N.log(arraysum/e))
 public class googleStackCoins {
 
     static boolean CanDoPartition(int[] coins, int mid, int fr){
