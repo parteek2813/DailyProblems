@@ -1,11 +1,11 @@
-
+package advHashing.java;
 // question
 
 import java.util.HashMap;
 
 // given an array , count the number of duplicate pairs , i.e
 // A[i] == A[j] where i!=j
-public class AdvHashing {
+public class duplicateElem {
 
     static int findPairs(int[] arr){
         HashMap<Integer, Integer> hm = new HashMap<>();
