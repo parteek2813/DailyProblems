@@ -11,21 +11,28 @@ public class AdvHashing {
         HashMap<Integer, Integer> hm = new HashMap<>();
 
         // storing the freq in the hashmap
-        for( int x: arr){
-            hm.put(x, hm.getOrDefault(x, 0) + 1);
-        }
-
-
-
-        // counting the pairs
         int ans =0;
-        for(Integer key: hm.keySet()){
-            if(hm.get(key) > 1){
-                int f = hm.get(key);
-                ans = ans + (f*(f-1))/2;
+        for( int x: arr){
+            if(hm.containsKey(x)){
+                ans = ans + hm.get(x);
+                hm.put(x, hm.get(x) + 1);
+            }else{
+                hm.put(x,1);
             }
         }
+
+
         return ans;
+
+        // counting the pairs
+//        int ans =0;
+//        for(Integer key: hm.keySet()){
+//            if(hm.get(key) > 1){
+//                int f = hm.get(key);
+//                ans = ans + (f*(f-1))/2;
+//            }
+//        }
+//        return ans;
     }
 
 
