@@ -6,6 +6,7 @@ package AdvSorting;
 // given an array count the triplets whose a(i) + a(j) + a(k) <= T where T is a target number
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class tripletsSum {
     static int countBrute(int[] arr, int target){
