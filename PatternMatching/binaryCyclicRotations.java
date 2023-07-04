@@ -17,7 +17,43 @@ package PatternMatching;
 
 
 public class binaryCyclicRotations {
-    public static void main(String[] args) {
 
+    static  int countCyclicRotations(String binaryString){
+        int n = binaryString.length();
+        int count = 0;
+
+        // Convert the binary string to a character array for easier manipulation
+        char[] chars = binaryString.toCharArray();
+
+        for (int i = 0; i < n; i++) {
+            // Perform the cyclic rotation
+            char temp = chars[n - 1];
+            for (int j = n - 1; j > 0; j--) {
+                chars[j] = chars[j - 1];
+            }
+            chars[0] = temp;
+
+            // Compare the rotated string with the original string
+            boolean isEqual = true;
+            for (int j = 0; j < n; j++) {
+                if (chars[j] != binaryString.charAt(j)) {
+                    isEqual = false;
+                    break;
+                }
+            }
+
+            // If the rotated string is equal to the original string, increment the count
+            if (isEqual) {
+                count++;
+            }
+        }
+
+        return count;
+
+    }
+    public static void main(String[] args) {
+        String binaryString = "1010";
+        int count = countCyclicRotations(binaryString);
+        System.out.println("Number of cyclic rotations that are the same as the original string: " + count);
     }
 }
