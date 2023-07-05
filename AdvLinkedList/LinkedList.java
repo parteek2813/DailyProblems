@@ -90,6 +90,24 @@ public class LinkedList {
         return temp.data;
     }
 
+    static Node InsertSorted(Node head, int data){
+        if((head != null) || (data<head.data)){
+            Node n = new Node(data);
+            n.next = head;
+            return n ;
+
+        }
+        Node t = head;
+        while ((t.next != null) && (t.next.data < data)){
+            t = t.next;
+        }
+
+        Node n = new Node(data);
+        n.next = t.next;
+        t.next = n;
+        return head;
+    }
+
     public static void main(String[] args) {
 
         Node linkedList = CreateLL(7);
@@ -105,6 +123,9 @@ public class LinkedList {
 
         int resKth = getKthElement(linkedList, 3);
         System.out.println(resKth);
+
+        Node getnew = InsertSorted(linkedList, 301);
+        printLL(getnew);
     }
 
 }
