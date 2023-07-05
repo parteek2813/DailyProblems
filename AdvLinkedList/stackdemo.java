@@ -1,3 +1,5 @@
+package AdvLinkedList;
+
 class Node1{
     int data;
     Node next;

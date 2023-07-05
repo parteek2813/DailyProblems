@@ -1,5 +1,7 @@
+package AdvLinkedList;
+
 public class Queue {
-    // Queue of Ints
+    // AdvLinkedList.Queue of Ints
     int arr[];
     int front;
     int rear;
@@ -40,7 +42,7 @@ public class Queue {
         if(!empty()){
             return arr[front];
         }else {
-            System.out.println("Queue is Empty");
+            System.out.println("AdvLinkedList.Queue is Empty");
             return -1;
         }
 
