@@ -20,6 +20,7 @@ public class LinkedList {
             tail.next = new Node(i);
             tail= tail.next;
         }
+
         return head;
     }
 
@@ -73,6 +74,22 @@ public class LinkedList {
         return head;
     }
 
+    static int getKthElement(Node head, int K){
+        Node temp = head;
+        int i=0;
+        if(K>length(head)){
+            return -1;
+        }
+        while (i != K){
+            temp = temp.next;
+            i++;
+        }
+        if(temp == null) {
+            return -1;
+        }
+        return temp.data;
+    }
+
     public static void main(String[] args) {
 
         Node linkedList = CreateLL(7);
@@ -85,6 +102,9 @@ public class LinkedList {
 
         linkedList = insertInMiddle(linkedList, 300, 3);
         printLL(linkedList);
+
+        int resKth = getKthElement(linkedList, 3);
+        System.out.println(resKth);
     }
 
 }
