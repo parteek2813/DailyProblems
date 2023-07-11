@@ -29,16 +29,34 @@ public class LNearestSmallerNum {
         return output;
     }
 
+    static int[] stackSmaller(int[] arr){
+
+        int n = arr.length;
+        int[] output = new int[n];
+        Stack<Integer> sc = new Stack();
+        for(int i =0; i<n; i++){
+            while (!sc.empty() && sc.peek() >= arr[i]){
+                sc.pop();
+            }
+            if(sc.isEmpty()){
+                output[i] = -1;
+            }else{
+                output[i] = sc.peek();
+            }
+            sc.push(arr[i]);
+        }
+        return output;
+    }
 
 
     public static void main(String[] args) {
 
        int[] arr = {1,6,4,12,3,8};
-       int[] res = bruteSmaller(arr);
-        System.out.println(Arrays.toString(res));
-//
-//        int[] res = stackSmaller(arr);
+//       int[] res = bruteSmaller(arr);
 //        System.out.println(Arrays.toString(res));
+
+        int[] res = stackSmaller(arr);
+        System.out.println(Arrays.toString(res));
 
     }
 }
