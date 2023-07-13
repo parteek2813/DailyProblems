@@ -7,6 +7,7 @@ package AdvStack;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Stack;
 
 // brute force
 // generate all rectangles (x1,x2,y1,y2) ---> O(N^4) TIME
@@ -48,6 +49,54 @@ public class maxRectArea2d {
 
         return prefixArray;
     }
+    static int findMaxAreawithStack(int[][] arr){
+        int[][] prefixArr = findPrefixArr(arr);
+        int maxArea = 0;
+        int n = prefixArr.length;
+        int m = prefixArr[0].length;
+
+        for (int i = 0; i < n; i++) {
+            int[] span = new int[m];
+            Stack<Integer> sc = new Stack<>();
+
+            for (int j = 0; j < m; j++) {
+                while (!sc.empty() && prefixArr[i][j] <= prefixArr[i][sc.peek()]) {
+                    sc.pop();
+                }
+                if (!sc.empty()) {
+                    span[j] = j - sc.peek();
+                } else {
+                    span[j] = j + 1;
+                }
+                sc.push(j);
+            }
+
+            while (!sc.empty()) {
+                sc.pop();
+            }
+
+            for (int j = m - 1; j >= 0; j--) {
+                while (!sc.empty() && prefixArr[i][j] <= prefixArr[i][sc.peek()]) {
+                    sc.pop();
+                }
+                if (!sc.empty()) {
+                    span[j] += sc.peek() - j - 1;
+                } else {
+                    span[j] += m - j - 1;
+                }
+                sc.push(j);
+            }
+
+            for (int j = 0; j < m; j++) {
+                int width = span[j];
+                int height = prefixArr[i][j];
+                int area = width * height;
+                maxArea = Math.max(maxArea, area);
+            }
+        }
+
+        return maxArea;
+    }
 
     static int findMaxArea(int[][] arr){
         int[][] prefixArr = findPrefixArr(arr);
@@ -81,11 +130,14 @@ public class maxRectArea2d {
                 {1,0,1,0,0,1},
                 {1,1,0,0,1,1},
         };
-        int res = findMaxArea(arr);
-        System.out.println(res);
+//        int res = findMaxArea(arr);
+//        System.out.println(res);
 //        for (int i = 0; i < res.length; i++) {
 //            System.out.println(Arrays.toString(res[i]));
 //        }
+
+        int res = findMaxAreawithStack(arr);
+        System.out.println(res);
 
 
     }
