@@ -1,5 +1,7 @@
 package AdvStack;
 
+import java.util.Stack;
+
 public class largestRectArea {
 
 //    TIME- O(1)
