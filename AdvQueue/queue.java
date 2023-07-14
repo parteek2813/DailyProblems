@@ -1,5 +1,7 @@
 package AdvQueue;
 
+import java.util.PriorityQueue;
+
 class QNode {
     int data;
     QNode next;
@@ -58,5 +60,9 @@ class Queue {
 }
 
 public class queue {
+
+    PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+    
 
 }
