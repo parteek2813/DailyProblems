@@ -48,13 +48,13 @@ public class reverseEvenNode {
             RNode temp  =  odd.next; // add even in temp
             odd.next = temp.next; // now next odd is [temp.next] walaa
 
-            temp.next = even;
-            even = temp;
+            temp.next = even; // point temp.next ---> to --> even
+            even = temp; // aur even ko temp banadiya
 
             // move odd to next odd
             odd = odd.next;
         }
-        odd = A;
+        odd = A; // reset the odd pointer again to head..... jo ki last me chala gya tha loop ke baad
 
         // Merge list
         while(even != null){
