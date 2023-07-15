@@ -12,13 +12,13 @@ class TNode{
     }
 }
 public class BinaryTree {
-//data
-private TNode root;
+    //data
+   private TNode root;
 
 
 
 
-//methods
+   //methods
     BinaryTree(){
         Scanner sc = new Scanner(System.in);
         root = buildTree(sc);
@@ -27,7 +27,7 @@ private TNode root;
 
     TNode buildTree(Scanner sc){
 
-    int data = sc.nextInt();
+        int data = sc.nextInt();
 
         if(data == -1){
             return null;
@@ -41,10 +41,12 @@ private TNode root;
     }
 
     void print(){
-//         this.preOrderPrint(root);
-           this.InOrderPrint(root);
+         this.preOrderPrint(root);
+//           this.InOrderPrint(root);
 
     }
+
+
 
     void preOrderPrint(TNode root){
         //base case

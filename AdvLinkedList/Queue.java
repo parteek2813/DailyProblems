@@ -1,5 +1,7 @@
 package AdvLinkedList;
 
+import AdvTrees.TNode;
+
 public class Queue {
     // AdvLinkedList.Queue of Ints
     int arr[];
@@ -46,5 +48,8 @@ public class Queue {
             return -1;
         }
 
+    }
+
+    public void addLast(TNode root) {
     }
 }
