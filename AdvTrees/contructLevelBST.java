@@ -61,6 +61,8 @@ public class contructLevelBST {
         root = constructUsingInorder(levelOrder, 0, levelOrder.size() - 1);
         return root;
     }
+
+    // simple inorder traversal!
     static void inorderTraversal(BinaryTreeNode<Integer> root) {
         if (root == null) {
             return;
@@ -80,7 +82,7 @@ public class contructLevelBST {
         levelOrder1.add(3);
         levelOrder1.add(5);
         levelOrder1.add(7);
-        BinaryTreeNode<Integer> bst1 = constructBstMethod1(levelOrder1);
+        BinaryTreeNode<Integer> bst1 = constructBstMethod1(levelOrder1); /// this got the constructed bst final Node
         System.out.print("Method 1: Inorder Traversal of Constructed BST: ");
         inorderTraversal(bst1);
         System.out.println();
@@ -96,6 +98,9 @@ public class contructLevelBST {
         levelOrder2.add(7);
         BinaryTreeNode<Integer> bst2 = constructBstMethod2(levelOrder2);
         System.out.print("Method 2: Inorder Traversal of Constructed BST: ");
+
+        // Method 2 is bit hard to understand .... just review it once more..!
+
         inorderTraversal(bst2);
         System.out.println();
 
