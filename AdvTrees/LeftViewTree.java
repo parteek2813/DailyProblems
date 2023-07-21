@@ -26,6 +26,10 @@ public class LeftViewTree extends BinaryTreeNode<Integer> {
         }
 
         // Recursive case
+
+        // interchanging these two lines one above the other can be made to switch the left sub tree
+        // as well as the right sub tree
+
         ArrayList<Integer> leftViewLeft = findLeftView(root.left, lvl + 1);
         ArrayList<Integer> leftViewRight = findLeftView(root.right, lvl + 1);
 
