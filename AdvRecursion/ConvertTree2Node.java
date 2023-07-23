@@ -6,7 +6,9 @@ package AdvRecursion;
 //The "linked list" should be in the same order as a pre-order traversal of the binary tree.
 
 
- class TreeNode{
+import java.util.ArrayList;
+
+class TreeNode{
     int val;
     TreeNode left;
     TreeNode right;
@@ -71,16 +73,67 @@ public class ConvertTree2Node {
         }
         System.out.println("null");
     }
+
+
+    public static int findClosestElement(TreeNode node, int k) {
+        TreeNode temp = node;
+        ArrayList<Integer> closestElements = new ArrayList<>();
+
+
+        int minDiff = Integer.MAX_VALUE;
+
+        while (temp != null) {
+            int d = Math.abs(k - temp.val);
+            if (d < minDiff) {
+                closestElements.clear();
+                closestElements.add(temp.val);
+                minDiff = d;
+            } else if (d == minDiff) {
+                closestElements.add(temp.val);
+            }
+
+            if (temp.val < k ) {
+                temp = temp.right;
+            } else if (temp.val > k ) {
+                temp = temp.left;
+            } else {
+                return temp.val;
+            }
+        }
+
+        int minElement = closestElements.get(0);
+        for(int i =1; i<closestElements.size(); i++){
+            if(closestElements.get(i) < minElement){
+                minElement = closestElements.get(i);
+
+            }
+        }
+        return minElement;
+    }
+
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(5);
-        root.left.left = new TreeNode(3);
-        root.left.right = new TreeNode(4);
-        root.right.right = new TreeNode(6);
-        Pair result = ConvertTree2LL(root);
-        System.out.println(result.head);
-        printLinkedList(result.head);
+//        TreeNode root = new TreeNode(1);
+//        root.left = new TreeNode(2);
+//        root.right = new TreeNode(5);
+//        root.left.left = new TreeNode(3);
+//        root.left.right = new TreeNode(4);
+//        root.right.right = new TreeNode(6);
+//        Pair result = ConvertTree2LL(root);
+//        System.out.println(result.head);
+//        printLinkedList(result.head);
+
+        TreeNode root = new TreeNode(17);
+        root.left = new TreeNode(8);
+        root.right = new TreeNode(20);
+        root.left.left = new TreeNode(6);
+        root.left.right = new TreeNode(10);
+        root.right.left = new TreeNode(18);
+        root.right.right = new TreeNode(25);
+        System.out.println(findClosestElement(root, 19));
+
 
     }
+
+
+
 }
