@@ -65,7 +65,7 @@ public class ConvertTree2Node {
 
     }
 
-    static void printLinkedList(TreeNode head){
+    static void printLinkedListRIght(TreeNode head){
         TreeNode current = head;
         while (current != null){
             System.out.print(current.val + "->");
@@ -129,6 +129,17 @@ public class ConvertTree2Node {
         }
     }
 
+    static void preOrderTraversal(TreeNode root){
+        if(root == null){
+            return;
+        }
+
+        System.out.print(root.val + " ");
+        preOrderTraversal(root.left);
+        preOrderTraversal(root.right);
+
+    }
+
     public static int findClosestElement(TreeNode node, int k) {
         TreeNode temp = node;
         ArrayList<Integer> closestElements = new ArrayList<>();
@@ -186,7 +197,7 @@ public class ConvertTree2Node {
 //        System.out.println(findClosestElement(root, 19));
 
         TreeNode res = deleteNode(root, 18);
-        printLinkedList(res);
+        preOrderTraversal(res);
 
     }
 
