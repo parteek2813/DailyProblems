@@ -74,6 +74,60 @@ public class ConvertTree2Node {
         System.out.println("null");
     }
 
+     static public TreeNode deleteNode(TreeNode root, int key) {
+        // searching
+        if(root == null){
+            return null;
+        }
+
+        // key is less than root
+        if(key < root.val){
+            root.left = deleteNode(root.left, key);
+            return root;
+        }
+
+        // key is greater than root
+        else if(key > root.val){
+            root.right = deleteNode(root.right, key);
+            return root;
+        }
+
+
+        // deletion
+        // key == root (this node should be deleted)
+        // no child, 1 child, 2 child
+        else{
+            // if deletion node is leaf node , just return from it
+
+            // no child
+            if(root.left == null && root.right == null){
+                return null;
+            }
+            // 1 child
+            else if(root.left != null && root.right == null){
+                return root.left;
+            }else if(root.left == null && root.right != null){
+                return root.right;
+            }
+
+            else{
+                // 2 children
+                TreeNode temp = root.left;
+                // find max
+                while(temp.right != null){
+                    temp = temp.right; // go to exteme right
+                }
+                // replace root data with largest in LST
+                root.val = temp.val;
+
+                // delete the largest node too at last
+                root.left = deleteNode(root.left,temp.val);
+
+                return root;
+
+            }
+        }
+    }
 
     public static int findClosestElement(TreeNode node, int k) {
         TreeNode temp = node;
@@ -129,8 +183,10 @@ public class ConvertTree2Node {
         root.left.right = new TreeNode(10);
         root.right.left = new TreeNode(18);
         root.right.right = new TreeNode(25);
-        System.out.println(findClosestElement(root, 19));
+//        System.out.println(findClosestElement(root, 19));
 
+        TreeNode res = deleteNode(root, 18);
+        printLinkedList(res);
 
     }
 
