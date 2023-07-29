@@ -1,9 +1,8 @@
-package AdvHeap;
+package codeForces888;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class escaltorConversations {
+public class escaltorConversationsA {
 
 //    private static int countConversations(int n, int m, int k, int H, int[] heights) {
 //        int conversations = 0;
@@ -37,7 +36,7 @@ public class escaltorConversations {
             for (int i = 0; i < n; i++) {
                 ar[i] = scanner.nextLong();
                 if (Math.abs(ar[i] - H) % k == 0) {
-                    if (Math.abs(ar[i] - H) / k < m && Math.abs(ar[i] - H) != 0) {
+                    if (Math.abs(ar[i] - H) / k < m && Math.abs(ar[i] - H) != 0) { // if less than number of steps && diff b/w height is not zero
                         sum++;
                     }
                 }
