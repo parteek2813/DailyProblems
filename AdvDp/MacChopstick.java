@@ -11,6 +11,8 @@ import java.util.List;
 public class MacChopstick {
 
     static int Maxchop(int[] chopStick,int d){
+
+
         int n = chopStick.length;
         int count = 0;
         ArrayList<ArrayList<Integer>> ll = new ArrayList<>();
@@ -18,7 +20,7 @@ public class MacChopstick {
 
         Arrays.sort(chopStick);
 
-        for(int i =0; i<n-1; i++){
+        for(int i =0; i<n-1; i++){ // in the for loop also the i value is incresing 
             if(Math.abs(chopStick[i] - chopStick[i+1]) <= d ){
                 ArrayList<Integer> pair = new ArrayList<>();
                 pair.add(chopStick[i]);
@@ -26,7 +28,7 @@ public class MacChopstick {
                 ll.add(pair);
                 System.out.println(pair);
                 count++;
-                i++;
+                i++;  // here incrementing
             }
         }
         return count;
