@@ -61,7 +61,6 @@ public class LisaAndMartians {
         int t = scanner.nextInt();
         while(t-->0) {
 
-
             int n = scanner.nextInt();
             int k = scanner.nextInt();
 
