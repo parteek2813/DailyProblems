@@ -13,21 +13,22 @@ import java.util.Arrays;
 // 1) sort acc to Protein/kg
 // 2) Pick items until to fill 70kg
 public class proteinPerKg {
-    static class FoodItem implements Comparable<FoodItem> {
+
+    static class FoodItem implements Comparable<FoodItem>{
         int quantity;
         int protein;
 
-        public FoodItem(int quantity, int protein) {
+        public FoodItem(int quantity, int protein){
             this.quantity = quantity;
             this.protein = protein;
         }
 
         @Override
-        public int compareTo(FoodItem other) {
-            // Sort in descending order of protein/kg
-            return Double.compare((double) other.protein / other.quantity, (double) this.protein / this.quantity);
+        public int compareTo(FoodItem other){
+            // sort in descending order of protein/kg
+            return Double.compare((double) other.protein/ other.quantity, (double) this.protein / this.quantity);
         }
-    }
+   }
 
     static int maxProtein() {
         int[] quan = {20, 15, 50, 10, 25, 12, 5};
