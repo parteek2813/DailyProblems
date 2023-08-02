@@ -3,8 +3,10 @@ package AdvBacktracking;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// QUestion
+// Question
 // Given a array of size N , generate all subsets of it
+
+
 public class generateSubsetsNsize {
 
     public static void generateSubsetActual(int[] arr , int i, ArrayList<Integer> output){
@@ -23,8 +25,8 @@ public class generateSubsetsNsize {
 
         // 2. exclude ith element + do the work for remaining
         // also remove the element added in the rec case 1 for this part.
-        Integer x = arr[i]; // typecasting int to INteger
-        output.remove(x);  // backtracking steps
+        Integer x = arr[i]; // typecasting int to Integer
+        output.remove(x);  // backtracking steps....happening when we're coming back from the function call
         generateSubsetActual(arr, i+1, output);
 
     }
@@ -34,9 +36,6 @@ public class generateSubsetsNsize {
 
             ArrayList<Integer> output = new ArrayList<>();
             generateSubsetActual(arr, 0, output);
-
-
-
 
     }
 }
