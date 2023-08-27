@@ -17,21 +17,21 @@ class PriorityQueue{
 
     void add(int data){
         this.size++;
-        int i = size;
         arr.add(data);
-        heapifyUp(i);
+        heapifyUp(size - 1);
 
     }
 
-    void heapifyUp(int index){
-        int parent = index/2;
-        while (parent  > 0 && compare(arr.get(index-1), arr.get(parent-1))){
-            swap(index-1, parent-1);
-            index= parent;
-            parent = index/2;
-
+    void heapifyUp(int index) {
+        int parent = (index - 1) / 2;
+        while (index > 0 && compare(arr.get(index), arr.get(parent))) {
+            swap(index, parent);
+            index = parent;
+            parent = (index - 1) / 2;
         }
     }
+
+
     boolean compare(int a , int b ){
         return minHeap ? a<b : a>b;
     }
@@ -43,42 +43,52 @@ class PriorityQueue{
     }
 
     int getMax(){
-        return arr.get(1);
+        return arr.get(0);
     }
 
-    void removeMax(){
-        swap(arr.size(), 1);
+    void removeMax() {
+        swap(0, size - 1);
+        arr.remove(size - 1);
         size--;
-        int i =1;
 
-        while(true){
-            int left = 2*i;
-            int right = 2*i + 1;
-            int max = i;
+        int i = 0;
 
-            if(left<= size && arr.get(left) > arr.get(i)){
-                max = left;
-            } else if (right <= size && arr.get(right) > arr.get(max)) {
-                max= right;
+        while (true) {
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+            int smallest = i;
+
+            if (left < size && arr.get(left) < arr.get(smallest)) {
+                smallest = left;
+            }
+            if (right < size && arr.get(right) < arr.get(smallest)) {
+                smallest = right;
             }
 
-            if(max==i){
+            if (smallest == i) {
                 break;
             }
 
-            swap(i,max);
-            i=max;
+            swap(i, smallest);
+            i = smallest;
         }
     }
+
 }
 public class implementPQ {
 
     public static void main(String[] args) {
         PriorityQueue minPq = new PriorityQueue(10,  true);
+//        minPq.add(5);
+//        minPq.add(3);
+//        minPq.add(7);
+//        minPq.add(1);
+
+        minPq.add(10);
+        minPq.add(40);
+        minPq.add(30);
         minPq.add(5);
-        minPq.add(3);
-        minPq.add(7);
-        minPq.add(1);
+
 
         int res = minPq.getMax();
         System.out.println(res);
