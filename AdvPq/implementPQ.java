@@ -2,6 +2,17 @@ package AdvPq;
 
 import java.util.ArrayList;
 
+// Time Complexity
+// MaxHeap()
+// getMax() --> O(1)
+// removeMax() --> O(LogN)
+// insert(data) --> O(LogN)
+
+// Heap can't be termed as BST as S stands for the search optimized tree but here
+// The Heap is not search optimized tree as we really don't know in which directions
+// would be even go [left or right]
+
+
 class PriorityQueue{
     int initCap;
     int size;
@@ -88,6 +99,7 @@ public class implementPQ {
         minPq.add(40);
         minPq.add(30);
         minPq.add(5);
+        minPq.removeMax();
 
 
         int res = minPq.getMax();
