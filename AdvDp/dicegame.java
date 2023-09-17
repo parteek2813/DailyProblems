@@ -73,10 +73,66 @@ public class dicegame {
         return dp[n];
     }
 
-    public static int findUsingDpSpaceArr(int n ){
+    // ladder problem
+    // child has grown up and can take jumps of sizes = 1,2,3,4,5....k
+    // How many ways he can reach the Nth Step.
 
+    // INPUT : N , K
 
+    // Run the summation = loop from n-1 to ... n-k
+    // recurrence
+    // f(i) + f(i-1) + f(i-2) + ..... + f(i-k)
+
+    // Rec: K^n
+    // Top Down DP: n*k
+    // Bottom Up DP: n*k
+
+    // loop from k times for n states
+    public static int findUsingK(int n, int k){
+        int dp[] = new int[n+1];
+        Arrays.fill(dp, 0);
+
+        dp[0] = 1;
+        for(int i =1; i<=n; i++){
+            int ans =0;
+            for(int j =1; j<=k; j++){
+                if(i-j>0){
+                    ans = ans + dp[i-j];
+                }
+            }
+            dp[i] = ans;
+        }
+        return dp[n];
     }
+
+    // Can I do better?
+    // USing Sliding Window + DP
+    // DP[i] = subtract first + add 3 elements/ add dp[i-1]] + add dp[i-1]
+    // dp[i]= 2*dp[i-1] - dp[i-k-1]
+
+    public static int ladderUsingSlidingWindow(int n , int k){
+        int dp[] = new int[n+1];
+        Arrays.fill(dp, 0);
+
+
+        dp[0]=dp[1] = 1;
+        for(int i =2 ; i<=n ; i++){
+                if(i<=k){
+                    dp[i] = 2*dp[i-1];
+                }else{
+                    dp[i] = 2*dp[i-1] - dp[i-k-1];
+                }
+        }
+        return dp[n];
+    }
+
+    // Can I still do better?
+    // Mathematical Technique : Matrix Exponentiation O(N)
+    // The time complexity for this approach comes out to be O(K^3 logN)
+    // This technique is also used to solve fibonacci too (Which is the fastest way to
+    // solve the fibonacci)
+
+
 
 
     public static void main(String[] args) {
@@ -88,7 +144,8 @@ public class dicegame {
 //        Arrays.fill(dp,0);
 //        int res = findUsingTopDp(n,dp);
 
-        int res = findUsingBottomUp(n);
+//        int res = findUsingBottomUp(n);
+        int res = ladderUsingSlidingWindow(8,3);
 
         System.out.println(res);
     }
