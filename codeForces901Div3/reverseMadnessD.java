@@ -79,6 +79,8 @@ public class reverseMadnessD {
                 b--;
             }
             int cnt = 0;
+            // we have to go halfway as other half will also be included in this same also.
+
             for (int j = l[i]; j <= r[i] + l[i] - j; j++) {
                 cnt += pref[j];
 
