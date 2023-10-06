@@ -1,5 +1,6 @@
 package codeForces901Div3;
 
+// reference: https://codeforces.com/contest/1878/problem/D
 
 import java.util.Scanner;
 import java.util.*;
@@ -80,6 +81,8 @@ public class reverseMadnessD {
             int cnt = 0;
             for (int j = l[i]; j <= r[i] + l[i] - j; j++) {
                 cnt += pref[j];
+
+                // for each odd position , just swap the char and if even comes do nothing
                 if ((cnt & 1) == 1) {
                     char[] chars = s.toCharArray();
                     char ch = chars[j];
