@@ -28,6 +28,7 @@ public class jellyfishAndMexD {
 
         long[][] dp = new long[m][n+1];
 
+        // Most Important Loop for storing dp in whole code
         for (int i = 0; i <= n; i++) {
             dp[0][i] = (cnt[0] - 1) * i;
         }
