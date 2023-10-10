@@ -1,6 +1,21 @@
 package EducationalCF156;
 import java.util.*;
 
+// Summary
+
+/*
+
+Sabse pehle hume n , n-1 , n-2 .... lengths ki string di hogi
+Ab hume kuch pos di hogi .... to aur uss pos pe element ko print karna hein
+To uss pos ke paas pahuchne ke liye sabse pehle mai consecutive string ko neglect karta
+rahunga and then ek string bachege jisme mere pos < str.length true hoga
+
+ Ab mujhe pata hein mera pos element isse string me hein to usko nikalne ke liye
+ let's say mai consider karta hu ek kuch part string ka sorted hoga and then unsorted
+ so sorted part ka last element compare karunga unosrted ke first say and agar sorted[last] > unsorted[first]
+ to mai sorted[last] ko nikaulnga and then at last pos de deunga
+
+ */
 
 public class decreasingStringC {
 
