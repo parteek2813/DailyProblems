@@ -34,8 +34,10 @@ public class fearOfDarkB {
         double an3 = ans;
 
         int val1 = Math.max(bp, ao);
-        double dis = (Math.sqrt(ab))/2.0;
-        double dis1 = Math.sqrt(val1);
+        double dis1 = Math.sqrt(val1); // direct distance from one of them points taken one at a time
+
+
+        double dis = (Math.sqrt(ab))/2.0; // distance between two lanterns but we have to take half because we need radius
         an1 = Math.max(dis,dis1);
 
         int val2 = Math.max(bo, ap);
@@ -43,19 +45,21 @@ public class fearOfDarkB {
         an3 = Math.max(dis,dis3);
 
 
+        // for getting the actual distance from first part we forget to take sq. root at that time
         double an2 = Math.sqrt(ans);
 
 
         an2 = Math.min(an2, an1);
         an2 = Math.min(an2, an3);
 
-//        DecimalFormat df = new DecimalFormat("#.############"); // 12 decimal places
-//        String formattedNumber = df.format(an2);
-//        System.out.println(formattedNumber);
+//      DecimalFormat df = new DecimalFormat("#.############"); // 12 decimal places
+//      String formattedNumber = df.format(an2);
+//      System.out.println(formattedNumber);
 
 
         Formatter fm = new Formatter();
 
+        // to get the decimal places upto 10 after dot(.)
         fm.format("%.10f", an2);
         System.out.println(fm);
         fm.close();
