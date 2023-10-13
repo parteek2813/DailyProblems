@@ -1,5 +1,6 @@
 package codeForces903;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class B {
@@ -22,12 +23,45 @@ public class B {
 
     }
 
+    public static boolean canMakeEqualAgain(int a, int b, int c){
+        Scanner sc = new Scanner(System.in);
+
+
+        int[] arr = new int[3];
+        for(int i =0; i<3; i++){
+            arr[i] = sc.nextInt();
+        }
+
+        Arrays.sort(arr);
+
+        // time in ms reduced from 6ms to 4ms after this below if condition
+        if(a==b && b==c){
+            return true;
+        }
+
+        int op=0;
+        if(arr[1]%arr[0]==0 && arr[2]%arr[0]==0){
+            op+=(arr[1]/arr[0] -1);
+            op+=(arr[2]/arr[0] -1);
+        }else {
+            return false;
+        }
+
+        if(op<=3){
+            return true;
+        }
+
+        return false;
+    }
+
    
 
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int t = scanner.nextInt();
+
+        long startTime = System.currentTimeMillis();
 
         while (t-- > 0) {
             int a = scanner.nextInt();
@@ -41,5 +75,11 @@ public class B {
                 System.out.println("NO");
             }
         }
+
+
+        long endTime = System.currentTimeMillis();
+        long elapsedTime = endTime - startTime;
+
+        System.out.println("Elapsed time: " + elapsedTime + " milliseconds");
     }
 }
