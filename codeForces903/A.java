@@ -9,13 +9,12 @@ public class A {
         int m = s.length();
         int minOperations = Integer.MAX_VALUE;
 
-        for (int i = 0; i < n; i++) {
             int operations = 0;
             StringBuilder temp = new StringBuilder(x);
             while (!temp.toString().contains(s)) {
                 temp.append(temp);
                 operations++;
-                if (temp.length() > n * m) {
+                if (temp.length() > n * m && !temp.toString().contains(s)) {
                     operations = -1; // s cannot be obtained within the limit
                     break;
                 }
@@ -23,14 +22,16 @@ public class A {
             if (operations != -1) {
                 minOperations = Math.min(minOperations, operations);
             }
-            x = x.substring(1) + x.charAt(0); // rotate x for the next iteration
-        }
+
 
         return (minOperations == Integer.MAX_VALUE) ? -1 : minOperations;
     }
 
 
-
+    // The main appraoch is that is we find out the string x in the string s
+    // then we break the loop
+    // else if ans != 0 aur x ki length > 2*m it means humne sare char consider kar liye
+    // and we are not able to find string s ... so just break the loop and ans becomes -1;
 
     public static long findMinimumOperationsNew(String x, String s, int n , int m ){
         long ans =0;
@@ -64,8 +65,8 @@ public class A {
             String s = scanner.nextLine();
 
 
-
-            long minOperations = findMinimumOperationsNew(x, s, n, m);
+            int minOperations = findMinimumOperations(x,s);
+//            long minOperations = findMinimumOperationsNew(x, s, n, m);
             System.out.println(minOperations);
         }
     }
