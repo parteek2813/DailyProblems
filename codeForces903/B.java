@@ -58,28 +58,40 @@ public class B {
 
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int t = scanner.nextInt();
+//        Scanner scanner = new Scanner(System.in);
+//        int t = scanner.nextInt();
+//
+//        long startTime = System.currentTimeMillis();
+//
+//        while (t-- > 0) {
+//            int a = scanner.nextInt();
+//            int b = scanner.nextInt();
+//            int c = scanner.nextInt();
+//
+//            if(canMakeEqual(a, b, c)) {
+//                System.out.println("YES");
+//            }
+//            else {
+//                System.out.println("NO");
+//            }
+//        }
+//
+//
+//        long endTime = System.currentTimeMillis();
+//        long elapsedTime = endTime - startTime;
+//
+//        System.out.println("Elapsed time: " + elapsedTime + " milliseconds");
 
-        long startTime = System.currentTimeMillis();
+        String s1 = "Telusko"+"iNeuron";
+        System.out.println(s1);
 
-        while (t-- > 0) {
-            int a = scanner.nextInt();
-            int b = scanner.nextInt();
-            int c = scanner.nextInt();
+        String s2 = "Telusko"+99;
+        System.out.println(s2);
 
-            if(canMakeEqual(a, b, c)) {
-                System.out.println("YES");
-            }
-            else {
-                System.out.println("NO");
-            }
-        }
+        String s3 = "hello"+99+19+10;
+        System.out.println(s3);
 
-
-        long endTime = System.currentTimeMillis();
-        long elapsedTime = endTime - startTime;
-
-        System.out.println("Elapsed time: " + elapsedTime + " milliseconds");
+        String s4 = 10 + 4 + "ineuron";
+        System.out.println(s4);
     }
 }
