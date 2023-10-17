@@ -129,8 +129,8 @@ public class dicegame {
     // Can I still do better?
     // Mathematical Technique : Matrix Exponentiation O(N)
     // The time complexity for this approach comes out to be O(K^3 logN)
-    // This technique is also used to solve fibonacci too (Which is the fastest way to
-    // solve the fibonacci)
+    // This technique is also used to solve dpCollection.fibonacci too (Which is the fastest way to
+    // solve the dpCollection.fibonacci)
 
 
 
