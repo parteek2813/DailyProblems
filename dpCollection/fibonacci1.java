@@ -1,7 +1,6 @@
 package dpCollection;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 /*
 Time Complexity: O(N) ---> Because we are going to call f(5) sure... then f(4)
@@ -23,7 +22,7 @@ Space Complexity: O(N) [Recursive Stack Space] + O(N) [DP Array]
  F(1)  F(0)
 
  */
-public class fibonacci {
+public class fibonacci1 {
 
     public static int fibonacci(int n, int[] dp){
         // base case
