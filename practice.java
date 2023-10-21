@@ -1,29 +1,35 @@
 
-class Books {
-    private int pgNo;
+class Fan {
+    private int cost; // Instance Variable
+    private String brand;
 
-    public void setPgNo(int x){
-        if(x > 0){
-            pgNo=x;
-        }else{
-            System.out.println("Invalid Input");
-        }
+
+    public void setCost(int cost){ // local variable
+        this.cost = cost;
     }
 
-    public int getPgNo(){
-        return pgNo;
+    public void setBrand(String brand){
+        this.brand=brand;
     }
 
+    public int getCost(){
+        return cost;
+    }
+
+    public String getBrand(){
+        return brand;
+    }
 }
 public class practice {
 
 
     public static void main(String[] args) {
-        Books b = new Books();
-//        b.setPgNo(100);
+        Fan f = new Fan();
+        f.setCost(100);
+        f.setBrand("Hello");
 
-        int res = b.getPgNo();
-        System.out.println(res);
+        System.out.println(f.getCost());
+        System.out.println(f.getBrand());
 
 
     }
