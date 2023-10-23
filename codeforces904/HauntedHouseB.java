@@ -31,12 +31,17 @@ public class HauntedHouseB {
                 }
 
 
+                // start iterating from the last and then add into the value
+                // the main point is that we have to find the difference between the itertor and if the
+                // st set is empty , then just print -1 and continue until the loop stops.
+
                 int it = st.last();
                 val += (i-it);
                 st.remove(it);
 
                 System.out.println(val + " ");
             }
+
             System.out.println();
         }
         sc.close();
