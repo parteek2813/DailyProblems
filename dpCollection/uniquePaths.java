@@ -91,6 +91,13 @@ public class uniquePaths {
 
         return dp[m-1][n-1];
     }
+
+//    public static int findUniqueTabuSpace(int m, int n){
+//
+//        // If there is a prev row and a prev column, we can space optimize it.
+//
+//    }
+
     public static void main(String[] args) {
         int m = 2;
         int n = 2;

@@ -1,6 +1,8 @@
+package codeforces904;
+
 import java.util.Scanner;
 
-public class codeForces904 {
+public class simpleDesignA {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
