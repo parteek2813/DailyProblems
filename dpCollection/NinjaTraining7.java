@@ -89,6 +89,47 @@ public class NinjaTraining7 {
         return dp[n-1][3];
 
     }
+
+    public static int NinjaTrainingTabuSpace(int n , int[][] points){
+        int[] prev = new int[4];
+
+        // For space optimization, what we need to require is only 2 array
+        // one for storing the prev value and other one for curr values
+        // then prev array becomes equal to curr and so on
+
+        // TIME: O(N*4*3);
+        // SPACE: O(4)
+
+
+        prev[0] = Math.max(points[0][1] , points[0][2]);
+        prev[1] = Math.max(points[0][0] , points[0][2]);
+        prev[2] = Math.max(points[0][0] , points[0][1]);
+        prev[3] = Math.max(points[0][0] , Math.max(points[0][1], points[0][2]));
+
+
+        // day starts from 1 till n
+        for(int day=1; day<n; day++){
+
+            int[] temp = new int[n];
+
+            for(int last =0; last < 4; last++){
+                temp[last]=0; // we're trying to compute this
+
+
+                //copy-paste the entire rec code from top down approach from above
+                for(int task=0; task<3; task++){
+                    if(task != last){
+                        int point = points[day][task] + prev[task];
+                        temp[last] = Math.max(temp[last], point);
+                    }
+                }
+            }
+            prev = temp;
+        }
+        return prev[3];
+    }
+
+
     public static void main(String[] args) {
         int[][] points = {{1,2,5}, {3,1,1}, {3,3,3}};
 
