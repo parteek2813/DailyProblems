@@ -27,6 +27,7 @@ public class HauntedHouseB {
             for(int i=n-1; i >= 0; i--){
                 if(st.isEmpty()){
                     System.out.println("-1");
+                    
                     continue;
                 }
 
