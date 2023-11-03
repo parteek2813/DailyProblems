@@ -1,36 +1,34 @@
 
-class Fan {
-    private int cost; // Instance Variable
-    private String brand;
 
-
-    public void setCost(int cost){ // local variable
-        this.cost = cost;
+class A {
+    public  A(){
+        super();
+        System.out.println("In A");
     }
 
-    public void setBrand(String brand){
-        this.brand=brand;
-    }
-
-    public int getCost(){
-        return cost;
-    }
-
-    public String getBrand(){
-        return brand;
+    public A(int a){
+        super();
+        System.out.println("In A int");
     }
 }
+
+class B extends A{
+    public B(){
+        super(1);
+        System.out.println("In B");
+    }
+
+    public B(int a ){
+        super();
+        System.out.println("In B int");
+    }
+}
+
 public class practice {
 
 
     public static void main(String[] args) {
-        Fan f = new Fan();
-        f.setCost(100);
-        f.setBrand("Hello");
-
-        System.out.println(f.getCost());
-        System.out.println(f.getBrand());
-
+        B obj = new B();
 
     }
 }
