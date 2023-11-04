@@ -1,34 +1,49 @@
 
 
-class A {
-    public  A(){
-        super();
-        System.out.println("In A");
-    }
+class Plane {
+    public void fly(){
+        System.out.println("Plane is flying");
 
-    public A(int a){
-        super();
-        System.out.println("In A int");
+    }
+    public void takeOff(){
+        System.out.println("Plane is taking off");
     }
 }
 
-class B extends A{
-    public B(){
-        super(1);
-        System.out.println("In B");
-    }
+class CargoPlane extends Plane{
+    public void fly(){
+        System.out.println("Cargo Plane flies at lower height");
 
-    public B(int a ){
-        super();
-        System.out.println("In B int");
+    }
+    public void takeOff(){
+        System.out.println("Cargo plane carries goods");
     }
 }
 
+class FighterPlane extends Plane{
+    public void fly(){
+        System.out.println("Fighter Plane flies at high height");
+
+    }
+    public void takeOff(){
+        System.out.println("Fighter plane requires short runway to takeOff");
+    }
+}
 public class practice {
 
 
     public static void main(String[] args) {
-        B obj = new B();
+            CargoPlane cp = new CargoPlane();
+            FighterPlane fp = new FighterPlane();
+
+            Plane p ;
+            p = cp;
+            cp.takeOff();
+            cp.fly();
+
+            p=fp;
+            fp.takeOff();
+            fp.fly();
 
     }
 }
